@@ -15,7 +15,15 @@ extension Droplet {
                            "-€ No food today"
                            ]
             
-            return options[Int(arc4random_uniform(UInt32(options.count)))]
+            let max:Int = options.count;
+            
+            #if os(Linux)
+                let rand = Int(random() % (max + 1))
+            #else
+                let rand = Int(arc4random_uniform(UInt32(max)))
+            #endif
+            
+            return options[rand]
         }
     }
 }
