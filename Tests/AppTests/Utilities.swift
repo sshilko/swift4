@@ -3,7 +3,6 @@ import Foundation
 @testable import Vapor
 import XCTest
 import Testing
-import FluentProvider
 
 extension Droplet {
     static func testable() throws -> Droplet {
